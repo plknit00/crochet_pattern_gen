@@ -16,6 +16,7 @@ void Pattern::get_eor_count() {
       total_stitch_count += stitch.second * 2;
     }
   }
+  // setting end of row count
   row[row.size() - 1].second = total_stitch_count;
 }
 

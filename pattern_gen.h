@@ -5,5 +5,15 @@
 // stich types: sc, inc, dec, eor (end of row)
 
 namespace pattern {
-class Pattern {};
+class CrochetPattern {
+public:
+  // convert inches to centimeters
+  float in_to_cm(float inches_val);
+
+  // Pattern* create_pattern();
+
+private:
+  float diameter_cm_;
+  float yarn_size_cm_;
+};
 } // namespace pattern
