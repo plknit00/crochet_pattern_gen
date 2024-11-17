@@ -5,8 +5,12 @@
 
 namespace pattern {
 
-float CrochetPattern::in_to_cm(float inches_val) {
-  return inches_val * 2.54;
+float CrochetPattern::in_to_mm(float inches_val) {
+  return inches_val * 25.4;
+}
+
+float CrochetPattern::cm_to_mm(float inches_val) {
+  return inches_val * 10;
 }
 
 // Pattern* CrochetPattern::create_pattern() {}

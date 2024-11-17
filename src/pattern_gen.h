@@ -6,14 +6,16 @@
 
 namespace pattern {
 class CrochetPattern {
-public:
+ public:
   // convert inches to centimeters
-  float in_to_cm(float inches_val);
+  float in_to_mm(float inches_val);
+
+  float cm_to_mm(float inches_val);
 
   // Pattern* create_pattern();
 
-private:
+ private:
   float diameter_cm_;
   float yarn_size_cm_;
 };
-} // namespace pattern
+}  // namespace pattern
