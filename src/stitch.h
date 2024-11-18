@@ -3,11 +3,21 @@
 
 namespace pattern {
 class Stitch {
-public:
-  enum StitchType { MR, SC, INC, DEC, EOR };
+ public:
+  enum StitchType {
+    kMr,
+    kSc,
+    kInc,
+    kDec,
+    kEor
+  };
 
-private:
-  std::pair<StitchType, int> stitch;
+  void set_stitch(StitchType stitch, int num_stitches);
+
+  std::pair<StitchType, int> get_stitch();
+
+ private:
+  std::pair<StitchType, int> stitch_;
 };
 
-} // namespace pattern
+}  // namespace pattern

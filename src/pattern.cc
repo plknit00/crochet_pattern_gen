@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+#include "row.h"
 #include "stitch.h"
 
 namespace pattern {
@@ -39,22 +40,24 @@ void Pattern::set_eor_count() {
 }
 
 void Pattern::print_stitch_pattern() {
-  for (auto& i : row_) {
-    // use switch cases?
-    // if (row_[i].first == Stitch::MR) {
-    //   std::cout << " " << std::endl;
-    // } else if (row_[i].first == Stitch::SC) {
-    //   std::cout << " " << std::endl;
-    // } else if (row_[i].first == Stitch::INC) {
-    //   std::cout << " " << std::endl;
-    // } else if (row_[i].first == Stitch::DEC) {
-    //   std::cout << " " << std::endl;
-    // }
-    // // end of row
-    // else {
-    //   std::cout << " " << std::endl;
-    // }
-    std::cout << i.first << i.second << " ";
+  for (int row = 0; row < patt_.size(); row++) {
+    for (int i = 0; i < patt_[row].size(); i++) {
+      // use switch cases?
+      // if (row_[i].first == Stitch::MR) {
+      //   std::cout << " " << std::endl;
+      // } else if (row_[i].first == Stitch::SC) {
+      //   std::cout << " " << std::endl;
+      // } else if (row_[i].first == Stitch::INC) {
+      //   std::cout << " " << std::endl;
+      // } else if (row_[i].first == Stitch::DEC) {
+      //   std::cout << " " << std::endl;
+      // }
+      // // end of row
+      // else {
+      //   std::cout << " " << std::endl;
+      // }
+      // std::cout << i.get_stitch << i.second << " ";
+    }
   }
   std::cout << std::endl;
 }

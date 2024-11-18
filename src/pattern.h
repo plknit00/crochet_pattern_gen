@@ -3,6 +3,7 @@
 #include <utility>
 #include <vector>
 
+#include "row.h"
 #include "stitch.h"
 
 namespace pattern {
@@ -17,7 +18,7 @@ class Pattern {
   void print_stitch_pattern();
 
  private:
-  std::vector<std::pair<Stitch::StitchType, int> > row_;
+  std::vector<Row*> patt_;
 };
 
 }  // namespace pattern

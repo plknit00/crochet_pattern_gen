@@ -12,6 +12,7 @@ cc_library(
     hdrs = ["pattern_gen.h"],
     deps = [
         ":pattern",
+        ":row",
         ":stitch",
     ],
 )
@@ -20,6 +21,16 @@ cc_library(
     name = "pattern",
     srcs = ["pattern.cc"],
     hdrs = ["pattern.h"],
+    deps = [
+        ":row",
+        ":stitch",
+    ],
+)
+
+cc_library(
+    name = "row",
+    srcs = ["row.cc"],
+    hdrs = ["row.h"],
     deps = [
         ":stitch",
     ],

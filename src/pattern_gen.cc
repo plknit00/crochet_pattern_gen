@@ -14,7 +14,12 @@ float CrochetPattern::cm_to_mm(float inches_val) {
 }
 
 Pattern* CrochetPattern::generate_magic_circle(int num_stitches) {
-  return nullptr;
+  std::pair<Stitch::StitchType, int> mr;
+  mr.set_first = MR;
+  mr.set_second = 6;
+  Pattern* pat;
+  pat.push_back(mr);
+  return pat;
 }
 
 Pattern* CrochetPattern::generate_row(int num_stitches_begin,
@@ -24,10 +29,10 @@ Pattern* CrochetPattern::generate_row(int num_stitches_begin,
 
 // later make this do different things for different shapes
 // for now, just makes a circle
-// assume each row is 0.5 mm
+// assume each row is 5 mm
 // later include yarn width in math
 std::vector<Pattern*> CrochetPattern::create_pattern(int circle_diameter) {
-  int num_rows = circle_diameter / 0.5;
+  int num_rows = circle_diameter / 5;
   std::vector<Pattern*> pattern;
   for (int i = 0; i < num_rows; i++) {
     // magic circle
