@@ -21,7 +21,7 @@ void CrochetPattern::print_prompts() {
   std::cout << "What size diameter do you want in mm?" << std::endl;
   std::cin >> diameter;
   // do stuff with the ints based upon cin results
-  Pattern* pat = create_pattern(yarn_size, shape, diameter);
+  Pattern* pat = create_pattern_circle(yarn_size, shape, diameter);
   pat->Pattern::print_stitch_pattern();
 }
 
@@ -53,11 +53,10 @@ Row CrochetPattern::generate_row(int num_stitches_begin, int num_stitches_end) {
 // for now, just makes a circle
 // assume each row is 5 mm in width, thus yarn size must be >= 5mm
 // later include yarn width in math
-Pattern* CrochetPattern::create_pattern(int yarn_size, int shape,
-                                        int diameter) {
+Pattern* CrochetPattern::create_pattern_circle(int yarn_size, int shape,
+                                               int diameter) {
   // int. div. rounds down, this part will use estimation/grouping
-  int num_rows = diameter / 5;
-  std::cout << "Number of rows " << num_rows << std::endl;
+  int num_rows = diameter / (yarn_size * 2);
   // ensure that diam and yarn size are same unit
   Pattern* pat = new Pattern();
   if (num_rows == 0) {
@@ -75,8 +74,8 @@ Pattern* CrochetPattern::create_pattern(int yarn_size, int shape,
     else {
       // first input is the number of rows currently
       // second input is number of rows at end of row
-      i = 6 * i;
-      Row row = generate_row(i, 2 * i);
+      int index = 6 * i;
+      Row row = generate_row(index, 2 * index);
       pat->push_back(row);
     }
   }

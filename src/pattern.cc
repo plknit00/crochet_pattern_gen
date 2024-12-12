@@ -9,6 +9,7 @@
 namespace pattern {
 
 void Pattern::print_stitch_pattern() {
+  std::cout << "Circle Crochet Pattern" << std::endl;
   for (int row_index = 0; row_index < patt_.size(); row_index++) {
     Row row = patt_[row_index];
     std::cout << "Round " << row_index << ": ";
@@ -22,13 +23,13 @@ void Pattern::print_stitch_pattern() {
           std::cout << "mr " << stitch_count << " ";
           break;
         case Stitch::StitchType::kSc:
-          std::cout << "sc " << stitch_count << " ";
+          std::cout << "sc x" << stitch_count << " ";
           break;
         case Stitch::StitchType::kInc:
-          std::cout << "inc " << stitch_count << " ";
+          std::cout << "inc x" << stitch_count << " ";
           break;
         case Stitch::StitchType::kDec:
-          std::cout << "dec " << stitch_count << " ";
+          std::cout << "dec x" << stitch_count << " ";
           break;
         case Stitch::StitchType::kEor:
           std::cout << "[" << stitch_count << "]" << std::endl;

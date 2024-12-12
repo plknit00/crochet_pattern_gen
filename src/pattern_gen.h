@@ -19,7 +19,7 @@ class CrochetPattern {
 
   static Row generate_row(int num_stitches_begin, int num_stitches_end);
 
-  static Pattern* create_pattern(int yarn_size, int shape, int diameter);
+  static Pattern* create_pattern_circle(int yarn_size, int shape, int diameter);
 
  private:
   float diameter_cm_;
