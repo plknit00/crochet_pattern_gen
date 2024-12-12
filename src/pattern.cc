@@ -8,58 +8,39 @@
 
 namespace pattern {
 
-void Pattern::print_prompts() {
-  int yarn_size, shape, diameter;
-  std::cout << "Which size yarn are you using in mm?" << std::endl;
-  // add more units options
-  std::cin >> yarn_size;
-  std::cout << "Which shape do you want to make?" << std::endl;
-  std::cout << "1. Circle" << std::endl;
-  std::cin >> shape;
-  // error check for valid input
-  // make prompts specific for each shape
-  std::cout << "What size diameter do you want in mm?" << std::endl;
-  std::cin >> diameter;
-}
-
-void Pattern::set_eor_count() {
-  int total_stitch_count = 0;
-  for (int i = 0; i < row_.size() - 1; i++) {
-    std::pair<Stitch::StitchType, int> stitch = row_[i];
-    // single crochet, decrease stitch, magic ring
-    if ((stitch.first == 2) || (stitch.first == 3) || (stitch.first == 1)) {
-      total_stitch_count += stitch.second;
-    }
-    // increase stitch
-    else if (stitch.first == 2) {
-      total_stitch_count += stitch.second * 2;
-    }
-  }
-  // setting end of row count
-  row_[row_.size() - 1].second = total_stitch_count;
-}
-
 void Pattern::print_stitch_pattern() {
-  for (int row = 0; row < patt_.size(); row++) {
-    for (int i = 0; i < patt_[row].size(); i++) {
+  for (int row_index = 0; row_index < patt_.size(); row_index++) {
+    Row row = patt_[row_index];
+    std::cout << "Round " << row_index << ": ";
+    for (int i = 0; i < patt_[row_index].size(); i++) {
       // use switch cases?
-      // if (row_[i].first == Stitch::MR) {
-      //   std::cout << " " << std::endl;
-      // } else if (row_[i].first == Stitch::SC) {
-      //   std::cout << " " << std::endl;
-      // } else if (row_[i].first == Stitch::INC) {
-      //   std::cout << " " << std::endl;
-      // } else if (row_[i].first == Stitch::DEC) {
-      //   std::cout << " " << std::endl;
-      // }
-      // // end of row
-      // else {
-      //   std::cout << " " << std::endl;
-      // }
-      // std::cout << i.get_stitch << i.second << " ";
+      Stitch st = row[i];
+      Stitch::StitchType stitch_type = st.get_stitch_type();
+      int stitch_count = st.get_stitch_count();
+      switch (stitch_type) {
+        case Stitch::StitchType::kMr:
+          std::cout << "mr " << stitch_count << " ";
+          break;
+        case Stitch::StitchType::kSc:
+          std::cout << "sc " << stitch_count << " ";
+          break;
+        case Stitch::StitchType::kInc:
+          std::cout << "inc " << stitch_count << " ";
+          break;
+        case Stitch::StitchType::kDec:
+          std::cout << "dec " << stitch_count << " ";
+          break;
+        case Stitch::StitchType::kEor:
+          std::cout << "[" << stitch_count << "]" << std::endl;
+          break;
+      }
     }
   }
-  std::cout << std::endl;
+  // if pattern is nullptr, it was tooo small, so print nothing
+}
+
+void Pattern::push_back(Row& row) {
+  patt_.push_back(row);
 }
 
 }  // namespace pattern

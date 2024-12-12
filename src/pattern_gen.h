@@ -8,16 +8,18 @@
 namespace pattern {
 class CrochetPattern {
  public:
+  static void print_prompts();
+
   // convert inches to centimeters
   static float in_to_mm(float inches_val);
 
   static float cm_to_mm(float inches_val);
 
-  static Pattern* generate_magic_circle(int num_stitches);
+  static Row generate_magic_ring(int num_stitches);
 
-  static Pattern* generate_row(int num_stitches_begin, int num_stitches_end);
+  static Row generate_row(int num_stitches_begin, int num_stitches_end);
 
-  std::vector<Pattern*> create_pattern(int diameter);
+  static Pattern* create_pattern(int yarn_size, int shape, int diameter);
 
  private:
   float diameter_cm_;

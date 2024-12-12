@@ -2,7 +2,7 @@ cc_binary(
     name = "main",
     srcs = ["main.cc"],
     deps = [
-        ":pattern",
+        ":pattern_gen",
     ],
 )
 
