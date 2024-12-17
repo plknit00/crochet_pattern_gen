@@ -8,6 +8,11 @@
 namespace pattern {
 class CrochetPattern {
  public:
+  enum class Shape {
+    kCircle,
+    kSphere
+  };
+
   static void print_prompts();
 
   // convert inches to centimeters
@@ -19,7 +24,11 @@ class CrochetPattern {
 
   static Row generate_row(int num_stitches_begin, int num_stitches_end);
 
-  static Pattern* create_pattern_circle(int yarn_size, int shape, int diameter);
+  static Pattern* create_pattern_circle(int yarn_width, int obj_diameter);
+
+  static Pattern* create_pattern_sphere(int yarn_width, int obj_diameter);
+
+  static Pattern* create(Shape shape, int yarn_width, int obj_diameter);
 
  private:
   float diameter_cm_;

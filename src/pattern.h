@@ -11,6 +11,8 @@ class Pattern {
  public:
   void print_stitch_pattern();
 
+  std::string to_string();
+
   void push_back(Row& row);
 
  private:

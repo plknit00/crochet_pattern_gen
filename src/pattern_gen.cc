@@ -10,19 +10,35 @@ namespace pattern {
 
 void CrochetPattern::print_prompts() {
   // error check for valid input from cin
-  int yarn_size, shape, diameter;
+  int yarn_width, shape, obj_diameter;
   std::cout << "Which size yarn are you using in mm?" << std::endl;
   // add more units options
-  std::cin >> yarn_size;
+  std::cin >> yarn_width;
   std::cout << "Which shape do you want to make?" << std::endl;
   std::cout << "1. Circle" << std::endl;
+  std::cout << "2. Sphere" << std::endl;
   std::cin >> shape;
   // make functions for shape specific prompts after this
-  std::cout << "What size diameter do you want in mm?" << std::endl;
-  std::cin >> diameter;
+  std::cout << "What size diameter do you want in cm?" << std::endl;
+  std::cin >> obj_diameter;
   // do stuff with the ints based upon cin results
-  Pattern* pat = create_pattern_circle(yarn_size, shape, diameter);
+  Pattern* pat;
+  if (shape == 1) {
+    pat = create_pattern_circle(yarn_width, obj_diameter);
+  } else {
+    pat = create_pattern_sphere(yarn_width, obj_diameter);
+  }
   pat->Pattern::print_stitch_pattern();
+}
+
+Pattern* CrochetPattern::create(CrochetPattern::Shape shape, int yarn_width,
+                                int obj_diameter) {
+  switch (shape) {
+    case Shape::kCircle:
+      return create_pattern_circle(yarn_width, obj_diameter);
+    case Shape::kSphere:
+      return create_pattern_sphere(yarn_width, obj_diameter);
+  }
 }
 
 float CrochetPattern::in_to_mm(float inches_val) {
@@ -49,16 +65,45 @@ Row CrochetPattern::generate_row(int num_stitches_begin, int num_stitches_end) {
   return row;
 }
 
-// later make this do different things for different shapes
-// for now, just makes a circle
-// assume each row is 5 mm in width, thus yarn size must be >= 5mm
-// later include yarn width in math
-Pattern* CrochetPattern::create_pattern_circle(int yarn_size, int shape,
-                                               int diameter) {
+Pattern* CrochetPattern::create_pattern_circle(int yarn_width,
+                                               int obj_diameter) {
   // int. div. rounds down, this part will use estimation/grouping
-  int num_rows = diameter / (yarn_size * 2);
+  // ensure this math is reasonable to how big stitches are
+  int num_rows = (obj_diameter * 2) / yarn_width;
+  std::cout << "Num rows: " << num_rows << std::endl;
   // ensure that diam and yarn size are same unit
-  Pattern* pat = new Pattern();
+  auto* pat = new Pattern();
+  if (num_rows == 0) {
+    std::cout << "This pattern is too small." << std::endl;
+    return pat;
+  }
+  for (int i = 0; i < num_rows; i++) {
+    // magic ring
+    if (i == 0) {
+      // 6 is num_stitches in mr
+      Row row = generate_magic_ring(6);
+      pat->push_back(row);
+    }
+    // other rows
+    else {
+      // first input is the number of rows currently
+      // second input is number of rows at end of row
+      int index = 6 * (1 << (i - 1));
+      std::cout << "index: " << index << std::endl;
+      Row row = generate_row(index, 2 * index);
+      pat->push_back(row);
+    }
+  }
+  return pat;
+}
+
+Pattern* CrochetPattern::create_pattern_sphere(int yarn_width,
+                                               int obj_diameter) {
+  // int. div. rounds down, this part will use estimation/grouping
+  // ensure this math is reasonable to how big stitches are
+  int num_rows = (obj_diameter * 2) / yarn_width;
+  // ensure that diam and yarn size are same unit
+  auto* pat = new Pattern();
   if (num_rows == 0) {
     std::cout << "This pattern is too small." << std::endl;
     return pat;

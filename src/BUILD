@@ -27,6 +27,16 @@ cc_library(
     ],
 )
 
+cc_test(
+    name = "pattern_gen_test",
+    srcs = ["pattern_gen_test.cc"],
+    deps = [
+        ":pattern_gen",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
+
 cc_library(
     name = "row",
     srcs = ["row.cc"],

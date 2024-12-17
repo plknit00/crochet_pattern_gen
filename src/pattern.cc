@@ -1,6 +1,7 @@
 #include "pattern.h"
 
 #include <iostream>
+#include <sstream>
 #include <string>
 
 #include "row.h"
@@ -9,10 +10,15 @@
 namespace pattern {
 
 void Pattern::print_stitch_pattern() {
-  std::cout << "Circle Crochet Pattern" << std::endl;
+  std::cout << to_string();
+}
+
+std::string Pattern::to_string() {
+  std::stringstream ss;
+  ss << "Circle Crochet Pattern" << std::endl;
   for (int row_index = 0; row_index < patt_.size(); row_index++) {
     Row row = patt_[row_index];
-    std::cout << "Round " << row_index << ": ";
+    ss << "Round " << row_index << ": ";
     for (int i = 0; i < patt_[row_index].size(); i++) {
       // use switch cases?
       Stitch st = row[i];
@@ -20,24 +26,25 @@ void Pattern::print_stitch_pattern() {
       int stitch_count = st.get_stitch_count();
       switch (stitch_type) {
         case Stitch::StitchType::kMr:
-          std::cout << "mr " << stitch_count << " ";
+          ss << "mr " << stitch_count << " ";
           break;
         case Stitch::StitchType::kSc:
-          std::cout << "sc x" << stitch_count << " ";
+          ss << "sc x" << stitch_count << " ";
           break;
         case Stitch::StitchType::kInc:
-          std::cout << "inc x" << stitch_count << " ";
+          ss << "inc x" << stitch_count << " ";
           break;
         case Stitch::StitchType::kDec:
-          std::cout << "dec x" << stitch_count << " ";
+          ss << "dec x" << stitch_count << " ";
           break;
         case Stitch::StitchType::kEor:
-          std::cout << "[" << stitch_count << "]" << std::endl;
+          ss << "[" << stitch_count << "]" << std::endl;
           break;
       }
     }
   }
   // if pattern is nullptr, it was tooo small, so print nothing
+  return ss.str();
 }
 
 void Pattern::push_back(Row& row) {
