@@ -5,7 +5,7 @@
 <li>Different yarn sizes</li>
 <li>Different shapes</li>
 <li>Takes dimension input parameters for adjustable pattern sizes</li>
-<li>This project rounds parameters to make topologically possible shapes for a given pattern</li>
+<li>This project rounds parameters to make geometrically possible shapes for a given pattern</li>
 </ul>
 <br>
 <h3>Running the program:</h3>
