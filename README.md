@@ -7,6 +7,7 @@
 <li>Takes dimension input parameters for adjustable pattern sizes</li>
 </ul>
 <br>
+<h3>Running the program:</h3>
 <ul>
 <li>To build main, type: bazel build //src:main</li>
 <li>To run main, type: bazel run //src:main</li>
