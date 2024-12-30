@@ -1,6 +1,11 @@
-<h1>crochet_pattern_gen</h1>
+<h1>Crochet Pattern Generator</h1>
 <br>
-<h3>Generates crochet patterns for various yarn sizes and product sizes</h3>
+<h3>Generates crochet patterns for:</h3>
+<ul>
+<li>Different yarn sizes</li>
+<li>Different shapes</li>
+<li>Takes dimension input parameters for adjustable pattern sizes</li>
+</ul>
 <br>
 <ul>
 <li>To build main, type: bazel build //src:main</li>
