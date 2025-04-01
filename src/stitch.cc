@@ -22,8 +22,10 @@ void Stitch::set_stitch_count(int num_stitches) {
 std::pair<Stitch::StitchType, int> Stitch::get_stitch() {
   return stitch_;
 }
+_
 
-Stitch::StitchType Stitch::get_stitch_type() {
+    Stitch::StitchType
+    Stitch::get_stitch_type() {
   return stitch_.first;
 }
 

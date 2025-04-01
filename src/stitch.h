@@ -1,6 +1,8 @@
 #pragma once
 #include <utility>
 
+#include "stitch_count.h"
+
 namespace pattern {
 class Stitch {
  public:
@@ -9,7 +11,8 @@ class Stitch {
     kSc,
     kInc,
     kDec,
-    kEor
+    kEor,
+    kMulti
   };
 
   Stitch(StitchType stitch, int num_stitches);
@@ -27,7 +30,7 @@ class Stitch {
   int get_stitch_count();
 
  private:
-  std::pair<StitchType, int> stitch_;
+  std::pair<StitchType, StitchCount> stitch_;
 };
 
 }  // namespace pattern

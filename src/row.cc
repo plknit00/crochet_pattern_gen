@@ -48,4 +48,6 @@ void Row::push_back(Stitch stitch) {
   row_.push_back(stitch);
 }
 
+void Row::sc_inc_repeat_stitch_row(int num_single_crochet, int num_repeats) {}
+
 }  // namespace pattern

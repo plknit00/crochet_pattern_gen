@@ -6,7 +6,7 @@
 // stich types: sc, inc, dec, eor (end of row)
 
 namespace pattern {
-class CrochetPattern {
+class CrochetPattern2 {
  public:
   enum class Shape {
     kCircle,
@@ -22,7 +22,7 @@ class CrochetPattern {
 
   static Row generate_magic_ring(int num_stitches);
 
-  static Row generate_row(int num_stitches_begin, int num_stitches_end);
+  static Row generate_row_circle(int num_stitches_begin);
 
   static Pattern* create_pattern_circle(int yarn_width, int obj_diameter);
 

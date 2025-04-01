@@ -20,6 +20,8 @@ class Row {
 
   void push_back(Stitch stitch);
 
+  void sc_inc_repeat_stitch_row(int num_single_crochet, int num_repeats);
+
  private:
   std::vector<Stitch> row_;
 };

@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "pattern_gen.h"
+#include "crochet_pattern.h"
 
 int main(int argc, char *argv[]) {
-  pattern::CrochetPattern::print_prompts();
+  pattern::CrochetPattern::decide_shape();
   return 0;
 }

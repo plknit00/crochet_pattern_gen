@@ -2,8 +2,14 @@ cc_binary(
     name = "main",
     srcs = ["main.cc"],
     deps = [
-        ":pattern_gen",
+        ":crochet_pattern",
     ],
+)
+
+cc_library(
+    name = "crochet_pattern",
+    srcs = ["crochet_pattern.cc"],
+    hdrs = ["crochet_pattern.h"],
 )
 
 cc_library(
@@ -50,4 +56,28 @@ cc_library(
     name = "stitch",
     srcs = ["stitch.cc"],
     hdrs = ["stitch.h"],
+    deps = [
+        ":stitch_count",
+    ],
+)
+
+cc_library(
+    name = "stitch_count",
+    hdrs = ["stitch_count.h"],
+)
+
+cc_library(
+    name = "simple_stitch",
+    hdrs = ["simple_stitch.h"],
+    deps = [
+        ":stitch_count",
+    ],
+)
+
+cc_library(
+    name = "multi_stitch",
+    hdrs = ["multi_stitch.h"],
+    deps = [
+        ":stitch_count",
+    ],
 )
