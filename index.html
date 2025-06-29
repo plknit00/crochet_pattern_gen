@@ -141,10 +141,12 @@
     form.addEventListener("submit", function(event) {
       event.preventDefault();
       const shape = shapeSelect.value;
+      const stitchType = document.getElementById("stitchType").value;
       const yarn = document.getElementById("yarn").value;
 
       let result = `<h2>Pattern Input Summary</h2>`;
       result += `<p>Shape: ${shape}</p>`;
+      result += `<p>Stitch Type: ${stitchType}</p>`;
       result += `<p>Yarn Thickness: ${yarn} mm</p>`;
 
       if (shape === "rectangle") {
