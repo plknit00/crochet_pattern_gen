@@ -82,8 +82,8 @@
         <option value="sphere">Sphere</option>
       </select>
 
-      <label for="stitch">Stitch Thickness (mm)</label>
-        <input type="number" id="stitch" name="stitch" min="0.1" step="0.1" required />
+      <label for="yarn">Yarn Thickness (mm)</label>
+        <input type="number" id="yarn" name="yarn" min="0.1" step="0.1" required />
 
       <div id="rectangleInputs" class="hidden">
         <label for="length">Length (mm)</label>
@@ -133,11 +133,11 @@
     form.addEventListener("submit", function(event) {
       event.preventDefault();
       const shape = shapeSelect.value;
-      const stitch = document.getElementById("stitch").value;
+      const yarn = document.getElementById("yarn").value;
 
       let result = `<h2>Pattern Input Summary</h2>`;
       result += `<p>Shape: ${shape}</p>`;
-      result += `<p>Stitch Thickness: ${stitch} mm</p>`;
+      result += `<p>Yarn Thickness: ${yarn} mm</p>`;
 
       if (shape === "rectangle") {
         const length = document.getElementById("length").value;
