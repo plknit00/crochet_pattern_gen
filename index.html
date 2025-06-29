@@ -51,7 +51,7 @@
       border: none;
       padding: 10px 20px;
       margin-top: 20px;
-      border-diameter: 5px;
+      border-radius: 5px;
       cursor: pointer;
     }
 
@@ -94,15 +94,15 @@
     <input type="number" id="yarn" name="yarn" min="0.1" step="0.1" required />
 
     <div id="rectangleInputs" class="hidden">
-        <label for="length">Length (mm)</label>
+        <label for="length">Length (cm)</label>
         <input type="number" id="length" name="length" min="1" />
 
-        <label for="width">Width (mm)</label>
+        <label for="width">Width (cm)</label>
         <input type="number" id="width" name="width" min="1" />
     </div>
 
     <div id="circleSphereInputs" class="hidden">
-        <label for="diameter">diameter (mm)</label>
+        <label for="diameter">Diameter (cm)</label>
         <input type="number" id="diameter" name="diameter" min="1" />
     </div>
 
@@ -152,11 +152,11 @@
       if (shape === "rectangle") {
         const length = document.getElementById("length").value;
         const width = document.getElementById("width").value;
-        result += `<p>Length: ${length} mm</p>`;
-        result += `<p>Width: ${width} mm</p>`;
+        result += `<p>Length: ${length} cm</p>`;
+        result += `<p>Width: ${width} cm</p>`;
       } else if (shape === "circle" || shape === "sphere") {
         const diameter = document.getElementById("diameter").value;
-        result += `<p>diameter: ${diameter} mm</p>`;
+        result += `<p>diameter: ${diameter} cm</p>`;
       }
 
       // Display the input summary for now
