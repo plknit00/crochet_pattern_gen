@@ -6,9 +6,7 @@ class Circle {
   // TO DO: check when things can be passed by reference
   // TO DO: HDC
 
-  static void input();
-
-  static void knot_type(double diameter, double yarn_thickness);
+  static void pattern_gen(double diameter, double yarn_thickness);
 
   static void single_crochet_dim(double diameter, double yarn_thickness);
 

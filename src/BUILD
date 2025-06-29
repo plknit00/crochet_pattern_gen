@@ -4,22 +4,13 @@ cc_library(
     hdrs = ["circle.h"],
 )
 
-cc_library(
-    name = "crochet_pattern",
-    srcs = ["crochet_pattern.cc"],
-    hdrs = ["crochet_pattern.h"],
-    deps = [
-        ":circle",
-        ":rectangle",
-        ":sphere",
-    ],
-)
-
 cc_binary(
     name = "main",
     srcs = ["main.cc"],
     deps = [
-        ":crochet_pattern",
+        ":circle",
+        ":rectangle",
+        ":sphere",
     ],
 )
 

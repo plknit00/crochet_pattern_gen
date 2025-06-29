@@ -6,9 +6,7 @@ class Rectangle {
   // TO DO: check when things can be passed by reference
   // TO DO: turning chain math and pattern format
 
-  static void input();
-
-  static void knot_type(double length, double width, double yarn_thickness);
+  static void pattern_gen(double length, double width, double yarn_thickness);
 
   static void single_crochet_dim(double length, double width,
                                  double yarn_thickness);

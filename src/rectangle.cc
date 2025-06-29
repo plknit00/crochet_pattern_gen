@@ -6,22 +6,9 @@
 
 namespace pattern {
 
-void Rectangle::input() {
-  double length, width, yarn_thickness;
-  std::cout << "Rectangle length in cm: ";
-  std::cin >> length;
-  std::cout << "Rectangle width in cm: ";
-  std::cin >> width;
-  std::cout << "Yarn thickness in cm: ";
-  std::cin >> yarn_thickness;
-  knot_type(length, width, yarn_thickness);
-}
-
-void Rectangle::knot_type(double length, double width, double yarn_thickness) {
+void Rectangle::pattern_gen(double length, double width,
+                            double yarn_thickness) {
   int knot_type;
-  std::cout << "What knot type do you wish to use?" << std::endl;
-  std::cout << "1. Single Crochet" << std::endl;
-  std::cout << "2. Half Double Crochet" << std::endl;
   std::cin >> knot_type;
   if (knot_type == 1) {
     single_crochet_dim(length, width, yarn_thickness);

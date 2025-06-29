@@ -6,20 +6,8 @@
 
 namespace pattern {
 
-void Circle::input() {
-  double diameter, yarn_thickness;
-  std::cout << "Circle diameter in cm: ";
-  std::cin >> diameter;
-  std::cout << "Yarn thickness in cm: ";
-  std::cin >> yarn_thickness;
-  knot_type(diameter, yarn_thickness);
-}
-
-void Circle::knot_type(double diameter, double yarn_thickness) {
+void Circle::pattern_gen(double diameter, double yarn_thickness) {
   int knot_type;
-  std::cout << "What knot type do you wish to use?" << std::endl;
-  std::cout << "1. Single Crochet" << std::endl;
-  std::cout << "2. Half Double Crochet" << std::endl;
   std::cin >> knot_type;
   if (knot_type == 1) {
     single_crochet_dim(diameter, yarn_thickness);

@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     }
     double radius = std::stod(argv[2]);
     double yarn = std::stod(argv[3]);
-    pattern::Circle::knot_type(radius, yarn);
+    pattern::Circle::pattern_gen(radius, yarn);
   } else if (shape == "sphere") {
     if (argc < 4) {
       std::cout << "Usage: crochet_pattern sphere <radius> <yarn_thickness>"
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
     }
     double radius = std::stod(argv[2]);
     double yarn = std::stod(argv[3]);
-    pattern::Sphere::knot_type(radius, yarn);
+    pattern::Sphere::pattern_gen(radius, yarn);
   } else if (shape == "rectangle") {
     if (argc < 5) {
       std::cout << "Usage: crochet_pattern rectangle <length> <width> "
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
     double length = std::stod(argv[2]);
     double width = std::stod(argv[3]);
     double yarn = std::stod(argv[4]);
-    pattern::Rectangle::knot_type(length, width, yarn);
+    pattern::Rectangle::pattern_gen(length, width, yarn);
   } else {
     std::cout << "Unknown shape: " << shape << std::endl;
     return 1;
