@@ -1,4 +1,5 @@
 <h1>crochet_pattern_gen</h1>
+<h2>Link to pattern generator site: [LINK]</h2>
 <br>
 <h3>Generates crochet patterns for various yarn sizes and product sizes</h3>
 <br>
